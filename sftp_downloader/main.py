@@ -1,49 +1,81 @@
 import argparse
 import csv
+import gettext
+import os
 
 import pysftp
 
+LOCALE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          'locales')
+DEFAULT_LOCALE = 'en_US'
+
+gettext.bindtextdomain('sftp_downloader', LOCALE_DIR)
+gettext.textdomain('sftp_downloader')
+_ = gettext.gettext
+
 
 def main():
-    # Define command line arguments
-    parser = argparse.ArgumentParser(
-        description='Download files from an SFTP server based on a CSV file.')
-    parser.add_argument('csv_file', type=str, help='path to the CSV file')
-    parser.add_argument('remote_path',
-                        type=str,
-                        help='remote path to the files on the SFTP server')
-    parser.add_argument('local_path',
-                        type=str,
-                        help='local path to save the downloaded files')
-    parser.add_argument('--hostname',
-                        type=str,
-                        default='sftp.example.com',
-                        help='SFTP server hostname')
-    parser.add_argument('--username',
-                        type=str,
-                        default='username',
-                        help='SFTP server username')
-    parser.add_argument('--private_key',
-                        type=str,
-                        help='path to the private key file')
+    parser = argparse.ArgumentParser(description=_(
+        "Download files from an SFTP server based on a CSV file."))
+    parser.add_argument(
+        "--csv",
+        required=True,
+        help=
+        _("The path to the CSV file that contains the list of files to download."
+          ),
+        metavar=_("CSV_FILE"))
+    parser.add_argument(
+        "--remote",
+        required=True,
+        help=_("The remote path to the files on the SFTP server."),
+        metavar=_("REMOTE_PATH"))
+    parser.add_argument("--local",
+                        required=True,
+                        help=_("The local path to save the downloaded files."),
+                        metavar=_("LOCAL_PATH"))
+    parser.add_argument(
+        "--host",
+        default="localhost",
+        help=_("The hostname or IP address of the SFTP server."),
+        metavar=_("HOSTNAME"))
+    parser.add_argument("--port",
+                        type=int,
+                        default=22,
+                        help=_("The port number of the SFTP server."),
+                        metavar=_("PORT_NUMBER"))
+    parser.add_argument("--username",
+                        default="anonymous",
+                        help=_("The username for the SFTP server."),
+                        metavar=_("USERNAME"))
+    parser.add_argument(
+        "--keyfile",
+        help=_("The path to the private key file for the SFTP server."),
+        metavar=_("PRIVATE_KEY_FILE"))
 
-    # Parse command line arguments
+    # Detect user's locale and set appropriate help message language
+    user_locale, _ = gettext.getlocale()
+    if user_locale is None:
+        user_locale = DEFAULT_LOCALE
+
+    try:
+        translator = gettext.translation('sftp_downloader', LOCALE_DIR,
+                                         [user_locale])
+        parser.set_defaults(_=translator.gettext)
+    except FileNotFoundError:
+        pass
+
     args = parser.parse_args()
 
-    # Connect to SFTP server
-    with pysftp.Connection(args.hostname,
+    with pysftp.Connection(args.host,
+                           port=args.port,
                            username=args.username,
-                           private_key=args.private_key) as sftp:
-        # Open CSV file
-        with open(args.csv_file, 'r') as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                # Get filename from CSV row
-                filename = row['filename']
-
-                # Download file
-                sftp.get(args.remote_path + '/' + filename,
-                         args.local_path + '/' + filename)
+                           private_key=args.keyfile) as sftp:
+        with sftp.cd(args.remote):
+            with open(args.csv) as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    filename = row['filename']
+                    sftp.get(filename, os.path.join(args.local, filename))
 
 
 if __name__ == '__main__':
