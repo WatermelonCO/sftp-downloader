@@ -2,6 +2,7 @@ import argparse
 import csv
 import gettext
 import os
+from gettext import gettext as _
 
 import pysftp
 
@@ -9,9 +10,10 @@ LOCALE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           'locales')
 DEFAULT_LOCALE = 'en_US'
 
+gettext.install('sftp_downloader', localedir=LOCALE_DIR)
 gettext.bindtextdomain('sftp_downloader', LOCALE_DIR)
 gettext.textdomain('sftp_downloader')
-_ = gettext.gettext
+# _ = gettext.gettext
 
 
 def main():
