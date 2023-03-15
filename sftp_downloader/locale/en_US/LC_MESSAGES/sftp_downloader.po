@@ -1,0 +1,108 @@
+# English translations for sftp_downloader.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the sftp_downloader package.
+# 
+# Translators:
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sftp_downloader\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-15 06:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: sftp_downloader.py:14
+msgid "Download files from an SFTP server based on a CSV file."
+msgstr ""
+
+#: sftp_downloader.py:17
+msgid "The path to the CSV file that contains the list of files to download."
+msgstr ""
+
+#: sftp_downloader.py:19
+msgid "CSV_FILE"
+msgstr ""
+
+#: sftp_downloader.py:22
+msgid "The remote path to the files on the SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:24
+msgid "REMOTE_PATH"
+msgstr ""
+
+#: sftp_downloader.py:27
+msgid "The local path to save the downloaded files."
+msgstr ""
+
+#: sftp_downloader.py:29
+msgid "LOCAL_PATH"
+msgstr ""
+
+#: sftp_downloader.py:32
+msgid "The hostname or IP address of the SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:34
+msgid "HOSTNAME"
+msgstr ""
+
+#: sftp_downloader.py:37
+msgid "The port number of the SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:39
+msgid "PORT_NUMBER"
+msgstr ""
+
+#: sftp_downloader.py:42
+msgid "The username for the SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:44
+msgid "USERNAME"
+msgstr ""
+
+#: sftp_downloader.py:47
+msgid "The path to the private key file for the SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:49
+msgid "PRIVATE_KEY_FILE"
+msgstr ""
+
+#: sftp_downloader.py:73
+msgid "Download complete."
+msgstr ""
+
+#: sftp_downloader.py:88
+msgid "Error: Invalid arguments."
+msgstr ""
+
+#: sftp_downloader.py:95
+msgid "Error: Failed to connect to SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:104
+msgid "Error: Failed to change remote directory."
+msgstr ""
+
+#: sftp_downloader.py:113
+msgid "Error: Failed to open CSV file."
+msgstr ""
+
+#: sftp_downloader.py:120
+msgid "Error: Failed to download file from SFTP server."
+msgstr ""
+
+#: sftp_downloader.py:142
+msgid "Local file mode is not supported yet."
+msgstr ""
+

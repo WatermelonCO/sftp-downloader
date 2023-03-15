@@ -1,0 +1,83 @@
+# Italian translations for sftp_downloader.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the sftp_downloader package.
+# 
+# Federico Capoano <federico.capoano@example.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sftp_downloader 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-16 06:10+0000\n"
+"PO-Revision-Date: 2022-03-16 06:15+0000\n"
+"Last-Translator: Federico Capoano <federico.capoano@example.com>\n"
+"Language-Team: Italian <it@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: sftp_downloader.py:15
+msgid "Download files from an SFTP server based on a CSV file."
+msgstr "Scarica i file da un server SFTP basandoti su un file CSV."
+
+#: sftp_downloader.py:17
+msgid "The path to the CSV file that contains the list of files to download."
+msgstr "Il percorso al file CSV che contiene l'elenco dei file da scaricare."
+
+#: sftp_downloader.py:20
+msgid "The remote path to the files on the SFTP server."
+msgstr "Il percorso remoto dei file sul server SFTP."
+
+#: sftp_downloader.py:23
+msgid "The local path to save the downloaded files."
+msgstr "Il percorso locale per salvare i file scaricati."
+
+#: sftp_downloader.py:26
+msgid "The hostname or IP address of the SFTP server."
+msgstr "Il nome host o l'indirizzo IP del server SFTP."
+
+#: sftp_downloader.py:29
+msgid "The port number of the SFTP server."
+msgstr "Il numero di porta del server SFTP."
+
+#: sftp_downloader.py:32
+msgid "The username for the SFTP server."
+msgstr "Lo username per il server SFTP."
+
+#: sftp_downloader.py:35
+msgid "The path to the private key file for the SFTP server."
+msgstr "Il percorso al file di chiave privata per il server SFTP."
+
+#: sftp_downloader.py:39
+msgid "Download files from SFTP server"
+msgstr "Scarica file dal server SFTP"
+
+#: sftp_downloader.py:54
+msgid "CSV_FILE"
+msgstr "FILE_CSV"
+
+#: sftp_downloader.py:55
+msgid "REMOTE_PATH"
+msgstr "PERCORSO_REMOTO"
+
+#: sftp_downloader.py:56
+msgid "LOCAL_PATH"
+msgstr "PERCORSO_LOCALE"
+
+#: sftp_downloader.py:57
+msgid "HOSTNAME"
+msgstr "NOME_HOST"
+
+#: sftp_downloader.py:58
+msgid "PORT_NUMBER"
+msgstr "NUMERO_PORTA"
+
+#: sftp_downloader.py:59
+msgid "USERNAME"
+msgstr "USERNAME"
+
+#: sftp_downloader.py:60
+msgid "PRIVATE_KEY_FILE"
+msgstr "FILE_CHIAVE_PRIVATA"
