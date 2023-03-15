@@ -1,4 +1,4 @@
-# sftp-downloader ka;j
+# sftp-downloader
 
 sftp-downloader is a command line tool for downloading files from an SFTP server based on a CSV file. The tool is implemented in Python using the pysftp library and includes command line arguments for the CSV file path, the remote path to the files on the SFTP server, and the local path to save the downloaded files.
 
@@ -39,6 +39,7 @@ The following command line arguments are available:
 - `--port`: the port number of the SFTP server (default: 22)
 - `--username`: the username for the SFTP server (default: anonymous)
 - `--keyfile`: the path to the private key file for the SFTP server (default: None)
+- `--local-mode`: if set, it will copy files instead of connecting to sftp.
 
 ## License
 
